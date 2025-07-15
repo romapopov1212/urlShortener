@@ -25,8 +25,13 @@ func main() {
 		log.Error("failed to init db", sl.Err(err))
 		return
 	}
-	_ = storage
-	//TODO: init storage sqlite
+
+	err = storage.DeleteUrl("google")
+	if err != nil {
+		log.Error("failed to del url", sl.Err(err))
+		return
+	}
+
 	//TODO: init router chi
 	//TODO: run server
 
